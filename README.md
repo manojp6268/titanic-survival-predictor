@@ -11,7 +11,7 @@
 ---
 
 ## 🔗 Live Demo
-👉 **xxxx(#)** #TBD
+👉 **https://titanic-survival-predictor-cksp.onrender.com**
 
 ---
 

@@ -14,8 +14,11 @@ deployed as a live web application.
 ## 🚀 Quick Links
 
 `Python` `Scikit-learn` `Flask` `SHAP` `Render`
+
 → [Live App](https://titanic-survival-predictor-cksp.onrender.com)
+
 → [View repo](https://github.com/manojp6268/titanic-survival-predictor)
+
 → [Full ML notebook](https://github.com/manojp6268/titanic-ml-pipeline)
 
 ---
@@ -39,17 +42,29 @@ SHAP explainability.
 
 ## How it works
 User inputs passenger details via web form
+
 │
+
 ▼
+
 Flask receives and preprocesses inputs
+
 │
+
 ▼
+
 StandardScaler transforms continuous features
+
 │
+
 ▼
+
 Logistic Regression predicts survival probability
+
 │
+
 ▼
+
 Result displayed with probability bar
 
 ---

@@ -64,7 +64,7 @@ Feature engineering did the heavy lifting, not model complexity.
 
 | Feature | Description |
 |---|---|
-| `Title` | Extracted from passenger name — proxy for age, sex, social status |
+| `Title` | Extracted from passenger name - proxy for age, sex, social status |
 | `FamilySize` | SibSp + Parch + 1 - captures travelling group context |
 | `IsChild` | Binary flag for passengers under 12 |
 | `Fare_log` | Log transformation of Fare - reduces right skewness |
@@ -82,14 +82,23 @@ Feature engineering did the heavy lifting, not model complexity.
 
 titanic-survival-predictor/
 ├── app.py                 <- Flask application
+
 ├── requirements.txt       <- Dependencies
+
 ├── Procfile               <- Render deployment config
+
 ├── models/
+
 │   ├── titanic_model.pkl  <- Trained Logistic Regression
+
 │   ├── scaler.pkl         <- Fitted StandardScaler
+
 │   └── feature_names.pkl <- Ordered feature list
+
 └── templates/
+
 ├── index.html         <- Input form
+
 └── result.html        <- Prediction result page
 
 ---

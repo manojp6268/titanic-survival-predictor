@@ -8,7 +8,7 @@
 
 > *Predict whether a Titanic passenger would have survived - powered by a machine learning model trained on historical data.*
 
-End-to-end ML pipeline — EDA, feature engineering, SHAP explainability,
+End-to-end ML pipeline - EDA, feature engineering, SHAP explainability,
 deployed as a live web application.
 
 ## 🚀 Quick Links

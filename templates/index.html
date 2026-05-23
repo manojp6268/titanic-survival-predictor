@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Predictor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2b4a 0%, #2c3e6b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 560px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1a2b4a;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, #1a2b4a, #2563a8);
+            border-radius: 2px;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a2b4a;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #2d3748;
+            background: #f8fafc;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        select:focus, input[type="number"]:focus {
+            border-color: #2563a8;
+            background: white;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .hint {
+            font-size: 11px;
+            color: #a0aec0;
+            margin-top: 4px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a2b4a, #2563a8);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #a0aec0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>🚢 Titanic Survival Predictor</h1>
+            <p>Enter passenger details below to predict survival probability
+               using a machine learning model trained on historical Titanic data.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <form action="/predict" method="POST">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <select name="title" id="title" required>
+                        <option value="">Select</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Master">Master</option>
+                        <option value="Rare">Rare (Dr/Rev/Col)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <select name="sex" id="sex" required>
+                        <option value="">Select</option>
+                        <option value="1">Female</option>
+                        <option value="0">Male</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pclass">Passenger Class</label>
+                    <select name="pclass" id="pclass" required>
+                        <option value="">Select</option>
+                        <option value="1">1st Class</option>
+                        <option value="2">2nd Class</option>
+                        <option value="3">3rd Class</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" name="age" id="age"
+                           min="0" max="100" step="0.5"
+                           placeholder="e.g. 25" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fare">Fare Paid (£)</label>
+                    <input type="number" name="fare" id="fare"
+                           min="0" max="600" step="0.01"
+                           placeholder="e.g. 32.50" required>
+                    <div class="hint">Typical range: £7 – £512</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="family_size">Family Size</label>
+                    <input type="number" name="family_size" id="family_size"
+                           min="1" max="11" step="1"
+                           placeholder="e.g. 1" required>
+                    <div class="hint">Include yourself (min: 1)</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="has_cabin">Cabin Recorded?</label>
+                <select name="has_cabin" id="has_cabin" required>
+                    <option value="">Select</option>
+                    <option value="1">Yes - cabin number known</option>
+                    <option value="0">No - no cabin record</option>
+                </select>
+                <div class="hint">
+                    1st class passengers typically had recorded cabins
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Predict Survival →
+            </button>
+
+        </form>
+
+        <div class="footer-note">
+            Model: Logistic Regression · ROC-AUC: 0.865 ·
+            Built by Manoj Prakash
+        </div>
+
+    </div>
+</body>
+</html>

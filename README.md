@@ -8,10 +8,20 @@
 
 > *Predict whether a Titanic passenger would have survived - powered by a machine learning model trained on historical data.*
 
+End-to-end ML pipeline — EDA, feature engineering, SHAP explainability,
+deployed as a live web application.
+
+## 🚀 Quick Links
+
+`Python` `Scikit-learn` `Flask` `SHAP` `Render`
+→ [Live App](https://titanic-survival-predictor-cksp.onrender.com)
+→ [View repo](https://github.com/manojp6268/titanic-survival-predictor)
+→ [Full ML notebook](https://github.com/manojp6268/titanic-ml-pipeline)
+
 ---
 
 ## 🔗 Live Demo
-👉 **https://titanic-survival-predictor-cksp.onrender.com**
+👉 **[Try it here](https://titanic-survival-predictor-cksp.onrender.com)**
 
 ---
 
